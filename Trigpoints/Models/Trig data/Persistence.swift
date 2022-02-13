@@ -52,18 +52,17 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-//        for _ in 0..<10 {
-//            let newItem = Visit(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            // Replace this implementation with code to handle the error appropriately.
-//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//            let nsError = error as NSError
-//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//        }
+        
+        TrigPoint.loadPreviews(viewContext: viewContext)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
         return result
     }()
 
@@ -191,5 +190,45 @@ extension TrigPoint {
     }
     var location: CLLocation {
         CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    static var preview: TrigPoint {
+        let points = TrigPoint.loadPreviews(viewContext: PersistenceController.preview.container.viewContext)
+        return points[0]
+    }
+
+    @discardableResult
+    static func loadPreviews(viewContext: NSManagedObjectContext) -> [TrigPoint] {
+        var points = [TrigPoint]()
+        
+        let data: Data
+        guard let file = Bundle.main.url(forResource: "smalltrig.json", withExtension: nil) else {
+            fatalError("Couldn't find smalltrig.json in main bundle")
+        }
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Couldn't load json from main bundle: \(error)")
+        }
+        do {
+            let decoder = JSONDecoder()
+            let raw = try decoder.decode([TrigPointJSON].self, from: data)
+            for item in raw {
+                let newItem = TrigPoint(context: viewContext)
+                newItem.name = item.name
+                newItem.latitude = item.latitude
+                newItem.longitude = item.longitude
+                newItem.link = item.link
+                newItem.condition = item.condition
+                newItem.identifier = item.id
+                newItem.country = item.country
+                newItem.height = item.height
+                points.append(newItem)
+            }
+        } catch {
+            fatalError("Couldn't parse json as \([TrigPointJSON].self): \(error)")
+        }
+        
+        return points
     }
 }

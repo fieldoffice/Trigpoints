@@ -30,7 +30,10 @@ struct PointListItem: View {
 struct PointListItem_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-//            PointListItem(point: TrigPointsModel(filename: "smalltrig.json").points[0], currentLocation: CLLocation(latitude: 60.1, longitude: 0.10))
+            PointListItem(
+                point: .preview,
+                currentLocation: CLLocation(latitude: 60.1, longitude: 0.10)
+            )
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

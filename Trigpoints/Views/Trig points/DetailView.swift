@@ -66,8 +66,11 @@ struct DetailView: View {
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(currentLocation: CLLocation(latitude: 60, longitude: 0.10), trigpoint: TrigPointsModel(filename: "smalltrig.json").points[0])
-//    }
-//}
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(
+            currentLocation: CLLocation(latitude: 60, longitude: 0.10),
+            trigpoint: .preview
+        )
+    }
+}

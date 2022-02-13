@@ -30,6 +30,6 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

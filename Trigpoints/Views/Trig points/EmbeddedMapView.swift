@@ -30,8 +30,8 @@ struct EmbeddedMapView: View {
     }
 }
 
-//struct EmbeddedMapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EmbeddedMapView(trigpoint: TrigPointsModel(filename: "trig.json").points[0])
-//    }
-//}
+struct EmbeddedMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        EmbeddedMapView(trigpoint: .preview)
+    }
+}

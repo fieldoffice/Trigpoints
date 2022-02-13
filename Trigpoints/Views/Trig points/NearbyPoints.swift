@@ -48,6 +48,7 @@ struct NearbyPoints: View {
                 Task {
                     do {
                         try await PersistenceController.shared.loadJSONData(filename: "smalltrig.json")
+                    
                     } catch {
                         print("fialed \(error)")
                     }
