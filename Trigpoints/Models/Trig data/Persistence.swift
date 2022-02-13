@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreLocation
 
 enum TrigPointError: Error {
     case wrongDataFormat(error: Error)
@@ -157,5 +158,38 @@ struct PersistenceController {
             }
             throw TrigPointError.batchInsertError
         }
+    }
+}
+
+extension TrigPoint {
+    
+    enum Condition : String, Codable, CaseIterable, Identifiable {
+        case good = "Good"
+        case remains = "Remains"
+        case unknown = "Unknown"
+        case toppled = "Toppled"
+        case visible = "Unreachable but visible"
+        case slightlyDamaged = "Slightly damaged"
+        case damaged = "Damaged"
+        case destroyed = "Destroyed"
+        case converted = "Converted"
+        case inaccessible = "Inaccessible"
+        case moved = "Moved"
+        case notLogged = "Not Logged"
+        case possiblyMissing = "Possibly missing"
+        case uncategorised = ""
+        
+        var id: String { rawValue }
+    }
+    
+    var cond: Condition {
+        Condition(rawValue: condition ?? "")!
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    var location: CLLocation {
+        CLLocation(latitude: latitude, longitude: longitude)
     }
 }

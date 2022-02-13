@@ -17,14 +17,14 @@ struct PointListItem: View {
         HStack {
             Text(point.name ??  "")
             Spacer()
-//            if let location = currentLocation {
-//                let formatter = MKDistanceFormatter()
-//                let prose = formatter.string(fromDistance: location.distance(from:point.location))
-//                Text(prose)
+            if let location = currentLocation {
+                let formatter = MKDistanceFormatter()
+                let prose = formatter.string(fromDistance: location.distance(from:point.location))
+                Text(prose)
             }
         }
-//        .foregroundColor(point.condition == .good ? .primary : .secondary)
-//    }
+        .foregroundColor(point.cond == .good ? .primary : .secondary)
+    }
 }
 
 struct PointListItem_Previews: PreviewProvider {

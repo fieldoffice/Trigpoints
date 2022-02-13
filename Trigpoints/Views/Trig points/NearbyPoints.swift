@@ -20,10 +20,17 @@ struct NearbyPoints: View {
         NavigationView {
             List {
                 ForEach(points) { point in
-                    Text(point.name ?? "")
+                    NavigationLink {
+                        DetailView(trigpoint: point)
+                    } label: {
+                        PointListItem(point: point, currentLocation: locationModel.approximateLocation)
+                    }
                 }
             }
+            .navigationTitle("Points")
         }
+        // FFS: https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             if points.count == 0 {
                 Task {
