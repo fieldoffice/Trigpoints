@@ -16,7 +16,6 @@ struct NearbyPointsList: View {
     init(filter: CLLocation?) {
         var predicate: NSPredicate? = nil
         if let location = filter {
-            print("\(location)")
             predicate = NSPredicate(
                 format: "latitude > %f AND latitude < %f AND longitude > %f AND longitude < %f",
                 location.coordinate.latitude - 0.1,
