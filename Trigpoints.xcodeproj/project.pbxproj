@@ -16,6 +16,27 @@
 		4C5D607827B906F4008D3711 /* TrigpointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D607727B906F4008D3711 /* TrigpointsTests.swift */; };
 		4C5D608227B906F4008D3711 /* TrigpointsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */; };
 		4C5D608427B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */; };
+		4C5D609327B90900008D3711 /* smalltrig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609127B90900008D3711 /* smalltrig.json */; };
+		4C5D609427B90900008D3711 /* smalltrig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609127B90900008D3711 /* smalltrig.json */; };
+		4C5D609527B90900008D3711 /* smalltrig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609127B90900008D3711 /* smalltrig.json */; };
+		4C5D609627B90900008D3711 /* trig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609227B90900008D3711 /* trig.json */; };
+		4C5D609727B90900008D3711 /* trig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609227B90900008D3711 /* trig.json */; };
+		4C5D609827B90900008D3711 /* trig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609227B90900008D3711 /* trig.json */; };
+		4C5D609E27B90FD5008D3711 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D609D27B90FD5008D3711 /* LocationModel.swift */; };
+		4C5D609F27B90FD5008D3711 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D609D27B90FD5008D3711 /* LocationModel.swift */; };
+		4C5D60A027B90FD5008D3711 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D609D27B90FD5008D3711 /* LocationModel.swift */; };
+		4C5D60A427B91046008D3711 /* RequestErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60A227B91046008D3711 /* RequestErrorView.swift */; };
+		4C5D60A527B91046008D3711 /* RequestErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60A227B91046008D3711 /* RequestErrorView.swift */; };
+		4C5D60A627B91046008D3711 /* RequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60A327B91046008D3711 /* RequestLocationView.swift */; };
+		4C5D60A727B91046008D3711 /* RequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60A327B91046008D3711 /* RequestLocationView.swift */; };
+		4C5D60AA27B910AE008D3711 /* NearbyPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60A927B910AE008D3711 /* NearbyPoints.swift */; };
+		4C5D60AB27B910AE008D3711 /* NearbyPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60A927B910AE008D3711 /* NearbyPoints.swift */; };
+		4C5D60AD27B911A1008D3711 /* PointListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60AC27B911A1008D3711 /* PointListItem.swift */; };
+		4C5D60AE27B911A1008D3711 /* PointListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60AC27B911A1008D3711 /* PointListItem.swift */; };
+		4C5D60B027B9153D008D3711 /* TrigJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60AF27B9153D008D3711 /* TrigJSON.swift */; };
+		4C5D60B127B9153D008D3711 /* TrigJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60AF27B9153D008D3711 /* TrigJSON.swift */; };
+		4C5D60B327B91AA9008D3711 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60B227B91AA9008D3711 /* RootView.swift */; };
+		4C5D60B427B91AA9008D3711 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60B227B91AA9008D3711 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +69,15 @@
 		4C5D607D27B906F4008D3711 /* TrigpointsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrigpointsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsUITests.swift; sourceTree = "<group>"; };
 		4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4C5D609127B90900008D3711 /* smalltrig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smalltrig.json; sourceTree = "<group>"; };
+		4C5D609227B90900008D3711 /* trig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trig.json; sourceTree = "<group>"; };
+		4C5D609D27B90FD5008D3711 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		4C5D60A227B91046008D3711 /* RequestErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestErrorView.swift; sourceTree = "<group>"; };
+		4C5D60A327B91046008D3711 /* RequestLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLocationView.swift; sourceTree = "<group>"; };
+		4C5D60A927B910AE008D3711 /* NearbyPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPoints.swift; sourceTree = "<group>"; };
+		4C5D60AC27B911A1008D3711 /* PointListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointListItem.swift; sourceTree = "<group>"; };
+		4C5D60AF27B9153D008D3711 /* TrigJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigJSON.swift; sourceTree = "<group>"; };
+		4C5D60B227B91AA9008D3711 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +128,11 @@
 		4C5D606027B906F2008D3711 /* Trigpoints */ = {
 			isa = PBXGroup;
 			children = (
+				4C5D609A27B90C32008D3711 /* Views */,
+				4C5D609927B90C28008D3711 /* Models */,
+				4C5D609027B908DE008D3711 /* Resources */,
 				4C5D606127B906F2008D3711 /* TrigpointsApp.swift */,
-				4C5D606327B906F2008D3711 /* ContentView.swift */,
 				4C5D606527B906F3008D3711 /* Assets.xcassets */,
-				4C5D606A27B906F3008D3711 /* Persistence.swift */,
-				4C5D606C27B906F3008D3711 /* Trigpoints.xcdatamodeld */,
 				4C5D606727B906F3008D3711 /* Preview Content */,
 			);
 			path = Trigpoints;
@@ -131,6 +161,71 @@
 				4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */,
 			);
 			path = TrigpointsUITests;
+			sourceTree = "<group>";
+		};
+		4C5D609027B908DE008D3711 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D609127B90900008D3711 /* smalltrig.json */,
+				4C5D609227B90900008D3711 /* trig.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4C5D609927B90C28008D3711 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D609C27B90FB6008D3711 /* Location */,
+				4C5D609B27B90FAA008D3711 /* Trig data */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C5D609A27B90C32008D3711 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D60A827B91080008D3711 /* Trig points */,
+				4C5D60A127B90FE6008D3711 /* Location */,
+				4C5D606327B906F2008D3711 /* ContentView.swift */,
+				4C5D60B227B91AA9008D3711 /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C5D609B27B90FAA008D3711 /* Trig data */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D606A27B906F3008D3711 /* Persistence.swift */,
+				4C5D606C27B906F3008D3711 /* Trigpoints.xcdatamodeld */,
+				4C5D60AF27B9153D008D3711 /* TrigJSON.swift */,
+			);
+			path = "Trig data";
+			sourceTree = "<group>";
+		};
+		4C5D609C27B90FB6008D3711 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D609D27B90FD5008D3711 /* LocationModel.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		4C5D60A127B90FE6008D3711 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D60A227B91046008D3711 /* RequestErrorView.swift */,
+				4C5D60A327B91046008D3711 /* RequestLocationView.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		4C5D60A827B91080008D3711 /* Trig points */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D60AC27B911A1008D3711 /* PointListItem.swift */,
+				4C5D60A927B910AE008D3711 /* NearbyPoints.swift */,
+			);
+			path = "Trig points";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +334,8 @@
 			files = (
 				4C5D606927B906F3008D3711 /* Preview Assets.xcassets in Resources */,
 				4C5D606627B906F3008D3711 /* Assets.xcassets in Resources */,
+				4C5D609327B90900008D3711 /* smalltrig.json in Resources */,
+				4C5D609627B90900008D3711 /* trig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5D609427B90900008D3711 /* smalltrig.json in Resources */,
+				4C5D609727B90900008D3711 /* trig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +352,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5D609527B90900008D3711 /* smalltrig.json in Resources */,
+				4C5D609827B90900008D3711 /* trig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +367,14 @@
 				4C5D606B27B906F3008D3711 /* Persistence.swift in Sources */,
 				4C5D606427B906F2008D3711 /* ContentView.swift in Sources */,
 				4C5D606E27B906F3008D3711 /* Trigpoints.xcdatamodeld in Sources */,
+				4C5D60AA27B910AE008D3711 /* NearbyPoints.swift in Sources */,
+				4C5D60A627B91046008D3711 /* RequestLocationView.swift in Sources */,
+				4C5D60AD27B911A1008D3711 /* PointListItem.swift in Sources */,
+				4C5D60A427B91046008D3711 /* RequestErrorView.swift in Sources */,
+				4C5D60B027B9153D008D3711 /* TrigJSON.swift in Sources */,
+				4C5D609E27B90FD5008D3711 /* LocationModel.swift in Sources */,
 				4C5D606227B906F2008D3711 /* TrigpointsApp.swift in Sources */,
+				4C5D60B327B91AA9008D3711 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5D60B127B9153D008D3711 /* TrigJSON.swift in Sources */,
+				4C5D609F27B90FD5008D3711 /* LocationModel.swift in Sources */,
 				4C5D607827B906F4008D3711 /* TrigpointsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +392,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5D60B427B91AA9008D3711 /* RootView.swift in Sources */,
 				4C5D608227B906F4008D3711 /* TrigpointsUITests.swift in Sources */,
+				4C5D60A727B91046008D3711 /* RequestLocationView.swift in Sources */,
+				4C5D60A027B90FD5008D3711 /* LocationModel.swift in Sources */,
+				4C5D60AB27B910AE008D3711 /* NearbyPoints.swift in Sources */,
+				4C5D60AE27B911A1008D3711 /* PointListItem.swift in Sources */,
 				4C5D608427B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift in Sources */,
+				4C5D60A527B91046008D3711 /* RequestErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +546,7 @@
 				DEVELOPMENT_TEAM = RBAHCJXK46;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed to find nearby trig points";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -459,6 +576,7 @@
 				DEVELOPMENT_TEAM = RBAHCJXK46;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed to find nearby trig points";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
