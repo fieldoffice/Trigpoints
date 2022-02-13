@@ -16,10 +16,22 @@ struct NearbyPoints: View {
         animation: .default)
     private var points: FetchedResults<TrigPoint>
     
+    var orderedPoints: [TrigPoint] {
+        if let location = locationModel.approximateLocation {
+            return points.sorted {
+                $0.location.distance(from: location) < $1.location.distance(from: location)
+            }
+        } else {
+            return points.sorted {
+                $0.height < $1.height
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(points) { point in
+                ForEach(orderedPoints) { point in
                     NavigationLink {
                         DetailView(trigpoint: point)
                     } label: {
