@@ -6,55 +6,42 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct NearbyPoints: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject private var locationModel: LocationModel
+    @State private var loaded: Bool = false
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \TrigPoint.name, ascending: true)],
+        sortDescriptors: [],
         animation: .default)
     private var points: FetchedResults<TrigPoint>
     
-    var orderedPoints: [TrigPoint] {
-        if let location = locationModel.approximateLocation {
-            return points.sorted {
-                $0.location.distance(from: location) < $1.location.distance(from: location)
-            }
-        } else {
-            return points.sorted {
-                $0.height < $1.height
-            }
-        }
-    }
-    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(orderedPoints) { point in
-                    NavigationLink {
-                        DetailView(trigpoint: point)
-                    } label: {
-                        PointListItem(point: point, currentLocation: locationModel.approximateLocation)
+            if (loaded) {
+                NearbyPointsList(filter: locationModel.approximateLocation)
+                    .navigationTitle("Points")
+            } else {
+                Text("Loading data...")
+            }
+        }
+        .onAppear {
+            loaded = points.count != 0
+            if !loaded {
+                Task {
+                    do {
+                        try await PersistenceController.shared.loadJSONData(filename: "trig.json")
+                        loaded = true
+                    } catch {
+                        print("failed \(error)")
                     }
                 }
             }
-            .navigationTitle("Points")
         }
         // FFS: https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear {
-            if points.count == 0 {
-                Task {
-                    do {
-                        try await PersistenceController.shared.loadJSONData(filename: "smalltrig.json")
-                    
-                    } catch {
-                        print("fialed \(error)")
-                    }
-                }
-            }
-        }
     }
 }
 
