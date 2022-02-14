@@ -32,9 +32,22 @@ struct DetailView: View {
                             let prose = distanceFormatter.string(fromDistance: location.distance(from:trigpoint.location))
                             Text("Distance: \(prose)")
                         }
-                        Text("Height: \(heightFormatter.string(from: NSNumber(value: trigpoint.height))!) meters")
+                        if trigpoint.height != 0 {
+                            Text("Height: \(heightFormatter.string(from: NSNumber(value: trigpoint.height))!) meters")
+                        }
                         Text("Condition: \(trigpoint.cond.rawValue)")
-//                        Text("ID: \(trigpoint.id)")
+                        if trigpoint.wrappedPointType != .other {
+                            Text("Type: \(trigpoint.wrappedPointType.rawValue)")
+                        }
+                        if trigpoint.wrappedCurrentUse != .unknown {
+                            Text("Current usage: \(trigpoint.wrappedCurrentUse.rawValue)")
+                        }
+                        if trigpoint.wrappedHistoricUse != .unknown {
+                            Text("Historic usage: \(trigpoint.wrappedHistoricUse.rawValue)")
+                        }
+                        if let identifier = trigpoint.identifier {
+                            Text("ID: \(identifier)")
+                        }
                     }
                     .headerProminence(.increased)
                     Section("open with") {

@@ -162,6 +162,31 @@ struct PersistenceController {
 
 extension TrigPoint {
     
+    enum PointType: String, CaseIterable, Identifiable {
+        case activeStation = "Active station"
+        case berntsen = "Berntsen"
+        case bolt = "Bolt"
+        case brassPlate = "Brass Plate"
+        case buriedBlock = "Buried Block"
+        case cannon = "Cannon"
+        case concreteRing = "Concrete Ring"
+        case curryStool = "Curry Stool"
+        case `cut` = "Cut"
+        case disc = "Disc"
+        case fbm = "FBM"
+        case fenomark = "Fenomark"
+        case intersectedStation = "Intersected Station"
+        case `other` = "Other"
+        case pillar = "Pillar"
+        case `pipe` = "Pipe"
+        case platformBolt = "Platform Bolt"
+        case rivet = "Rivet"
+        case spider = "spider"
+        case surfaceBlock = "Surface Block"
+        
+        var id: String { rawValue }
+    }
+    
     enum Condition : String, Codable, CaseIterable, Identifiable {
         case good = "Good"
         case remains = "Remains"
@@ -176,13 +201,45 @@ extension TrigPoint {
         case moved = "Moved"
         case notLogged = "Not Logged"
         case possiblyMissing = "Possibly missing"
-        case uncategorised = ""
+        
+        var id: String { rawValue }
+    }
+    
+    enum Use: String, CaseIterable, Identifiable {
+        case activeStation = "Active station"
+        case gpsStation = "GPS Station"
+        case nceAdjustment = "NCE Adjustment"
+        case none = "None"
+        case passiveStation = "Passive station"
+        case other = "Other"
+        case primary = "Primary"
+        case secondary = "Secondary"
+        case unknown = "Unknown"
+        case projectEmily = "Project Emily"
+        case fundamentalBenchmark = "Fundamental Benchmark"
+        case thirdOrder = "3rd order"
+        case fourthOrder = "4th order"
+        case thirteenthOrder = "13th order - GPS"
+        case greatGlenProject = "Great Glen Project"
+        case hydrographicSurveyStation = "Hydrographic Survey Station"
         
         var id: String { rawValue }
     }
     
     var cond: Condition {
-        Condition(rawValue: condition ?? "")!
+        Condition(rawValue: condition ?? "") ?? .unknown
+    }
+    
+    var wrappedPointType: PointType {
+        PointType(rawValue: type ?? "") ?? .other
+    }
+    
+    var wrappedCurrentUse: Use {
+        Use(rawValue: currentUse ?? "") ?? .unknown
+    }
+    
+    var wrappedHistoricUse: Use {
+        Use(rawValue: historicUse ?? "") ?? .unknown
     }
     
     var coordinate: CLLocationCoordinate2D {

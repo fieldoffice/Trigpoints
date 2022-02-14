@@ -43,6 +43,10 @@
 		4C5D60BA27B92055008D3711 /* EmbeddedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60B827B92055008D3711 /* EmbeddedMapView.swift */; };
 		4C5D60BC27B9206A008D3711 /* LabelledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60BB27B9206A008D3711 /* LabelledButton.swift */; };
 		4C5D60BD27B9206A008D3711 /* LabelledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60BB27B9206A008D3711 /* LabelledButton.swift */; };
+		4CAB47E827BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */; };
+		4CAB47E927BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */; };
+		4CAB47EF27BAF2400043B797 /* AngleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */; };
+		4CAB47F027BAF2400043B797 /* AngleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */; };
 		4CCFD83B27B9546700A99A78 /* NearbyPointsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */; };
 		4CCFD83C27B9546700A99A78 /* NearbyPointsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +93,8 @@
 		4C5D60B527B9203F008D3711 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4C5D60B827B92055008D3711 /* EmbeddedMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedMapView.swift; sourceTree = "<group>"; };
 		4C5D60BB27B9206A008D3711 /* LabelledButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelledButton.swift; sourceTree = "<group>"; };
+		4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationExtensions.swift; sourceTree = "<group>"; };
+		4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleIndicator.swift; sourceTree = "<group>"; };
 		4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPointsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +146,7 @@
 		4C5D606027B906F2008D3711 /* Trigpoints */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB47EA27BAF0D50043B797 /* Helpers */,
 				4C5D609A27B90C32008D3711 /* Views */,
 				4C5D609927B90C28008D3711 /* Models */,
 				4C5D609027B908DE008D3711 /* Resources */,
@@ -240,8 +247,17 @@
 				4C5D60AC27B911A1008D3711 /* PointListItem.swift */,
 				4C5D60A927B910AE008D3711 /* NearbyPoints.swift */,
 				4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */,
+				4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */,
 			);
 			path = "Trig points";
+			sourceTree = "<group>";
+		};
+		4CAB47EA27BAF0D50043B797 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,12 +405,14 @@
 				4C5D60A627B91046008D3711 /* RequestLocationView.swift in Sources */,
 				4C5D60AD27B911A1008D3711 /* PointListItem.swift in Sources */,
 				4C5D60B927B92055008D3711 /* EmbeddedMapView.swift in Sources */,
+				4CAB47E827BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */,
 				4C5D60A427B91046008D3711 /* RequestErrorView.swift in Sources */,
 				4C5D60B027B9153D008D3711 /* TrigJSON.swift in Sources */,
 				4C5D60BC27B9206A008D3711 /* LabelledButton.swift in Sources */,
 				4C5D609E27B90FD5008D3711 /* LocationModel.swift in Sources */,
 				4C5D606227B906F2008D3711 /* TrigpointsApp.swift in Sources */,
 				4C5D60B327B91AA9008D3711 /* RootView.swift in Sources */,
+				4CAB47EF27BAF2400043B797 /* AngleIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C5D60B127B9153D008D3711 /* TrigJSON.swift in Sources */,
+				4CAB47E927BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */,
 				4C5D609F27B90FD5008D3711 /* LocationModel.swift in Sources */,
 				4C5D607827B906F4008D3711 /* TrigpointsTests.swift in Sources */,
 			);
@@ -413,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C5D60B427B91AA9008D3711 /* RootView.swift in Sources */,
+				4CAB47F027BAF2400043B797 /* AngleIndicator.swift in Sources */,
 				4C5D60BA27B92055008D3711 /* EmbeddedMapView.swift in Sources */,
 				4C5D60B727B9203F008D3711 /* DetailView.swift in Sources */,
 				4C5D608227B906F4008D3711 /* TrigpointsUITests.swift in Sources */,

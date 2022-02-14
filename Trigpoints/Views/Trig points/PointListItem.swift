@@ -12,15 +12,24 @@ import MapKit
 struct PointListItem: View {
     var point: TrigPoint
     var currentLocation: CLLocation?
+    var formatter: MKDistanceFormatter
+    
+    init(point: TrigPoint, currentLocation: CLLocation?) {
+        self.point = point
+        self.currentLocation = currentLocation
+        self.formatter = MKDistanceFormatter()
+        self.formatter.unitStyle = .abbreviated
+    }
     
     var body: some View {
         HStack {
             Text(point.name ??  "")
             Spacer()
             if let location = currentLocation {
-                let formatter = MKDistanceFormatter()
                 let prose = formatter.string(fromDistance: location.distance(from:point.location))
                 Text(prose)
+                let res = calcOffset(location.coordinate, point.coordinate)
+                AngleIndicator(angle: res.1)
             }
         }
         .foregroundColor(point.cond == .good ? .primary : .secondary)
