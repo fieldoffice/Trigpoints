@@ -46,7 +46,7 @@ struct NearbyPointsList: View {
         if let location = locationModel.approximateLocation {
             List(orderedPoints, id: \.self) { point in
                 NavigationLink {
-                    DetailView(trigpoint: point)
+                    DetailView(currentLocation: location, trigpoint: point)
                 } label: {
                     PointListItem(point: point, currentLocation: location)
                 }
