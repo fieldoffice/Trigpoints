@@ -19,14 +19,14 @@ struct AngleIndicator: View {
         case 135..<225:
             return "Due south"
         case 225..<315:
-            return "Due west"	
+            return "Due west"
         default:
             return "Due north"
         }
     }
     
     var body: some View {
-        Image(systemName: "arrow.up")
+        Image(systemName: "location.north.fill")
             .rotationEffect(Angle(degrees: angle))
             .accessibilityLabel(description)
     }

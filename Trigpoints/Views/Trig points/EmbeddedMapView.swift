@@ -11,10 +11,14 @@ import MapKit
 struct EmbeddedMapView: View {
     var trigpoint: TrigPoint
     
+    @State private var userTrackingMode: MapUserTrackingMode = .none
     @State private var region = MKCoordinateRegion()
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: [trigpoint]) { place in
+        Map(coordinateRegion: $region,
+            showsUserLocation: true,
+            userTrackingMode: $userTrackingMode,
+            annotationItems: [trigpoint]) { place in
             MapMarker(coordinate: place.coordinate)
         }
             .onAppear {
