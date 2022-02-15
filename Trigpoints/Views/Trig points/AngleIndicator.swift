@@ -10,9 +10,25 @@ import SwiftUI
 struct AngleIndicator: View {
     var angle: Double
     
+    var description: String {
+        let adjusted = (Int(angle) + 360) % 360
+        
+        switch adjusted {
+        case 45..<135:
+            return "Due east"
+        case 135..<225:
+            return "Due south"
+        case 225..<315:
+            return "Due west"	
+        default:
+            return "Due north"
+        }
+    }
+    
     var body: some View {
         Image(systemName: "arrow.up")
             .rotationEffect(Angle(degrees: angle))
+            .accessibilityLabel(description)
     }
 }
 
