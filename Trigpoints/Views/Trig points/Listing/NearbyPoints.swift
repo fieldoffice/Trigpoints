@@ -12,6 +12,7 @@ struct NearbyPoints: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject private var locationModel: LocationModel
     @State private var loaded: Bool = false
+    @State private var showSheet = false
     
     @FetchRequest(
         sortDescriptors: [],
@@ -23,6 +24,15 @@ struct NearbyPoints: View {
             if (loaded) {
                 NearbyPointsList(filter: locationModel.approximateLocation)
                     .navigationTitle("Points")
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            Button {
+                                showSheet = true
+                            } label: {
+                                Image(systemName: "eye")
+                            }
+                        }
+                    }
             } else {
                 Text("Loading data...")
             }
@@ -39,6 +49,8 @@ struct NearbyPoints: View {
                     }
                 }
             }
+        }.sheet(isPresented: $showSheet) {
+            ListFilters()
         }
         // FFS: https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
         .navigationViewStyle(StackNavigationViewStyle())

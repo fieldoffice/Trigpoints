@@ -10,6 +10,7 @@ import CoreLocation
 
 struct NearbyPointsList: View {
     @EnvironmentObject private var locationModel: LocationModel
+    @AppStorage("showGoodOnly") var showGoodOnly: Bool = false
     
     @FetchRequest var fetchRequest: FetchedResults<TrigPoint>
     
@@ -32,12 +33,14 @@ struct NearbyPointsList: View {
     
     var orderedPoints: [TrigPoint] {
         if let location = locationModel.approximateLocation {
-            return fetchRequest.sorted {
+            return fetchRequest.filter {
+                !showGoodOnly || $0.cond == .good
+            }.sorted {
                 $0.location.distance(from: location) < $1.location.distance(from: location)
             }
         } else {
-            return fetchRequest.sorted {
-                $0.height < $1.height
+            return fetchRequest.filter {
+                !showGoodOnly || $0.cond == .good
             }
         }
     }
@@ -64,14 +67,6 @@ struct NearbyPointsList: View {
                     }
                 }
             }
-            
-//            List(orderedPoints, id: \.self) { point in
-//                NavigationLink {
-//                    DetailView(currentLocation: location, trigpoint: point)
-//                } label: {
-//                    PointListItem(point: point, currentLocation: location)
-//                }
-//            }
         } else {
             Text("Acquiring location...")
         }
