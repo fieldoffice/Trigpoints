@@ -26,7 +26,7 @@ struct AngleIndicator: View {
     }
     
     var body: some View {
-        Image(systemName: "location.north.fill")
+        Image(systemName: "arrow.up")
             .rotationEffect(Angle(degrees: angle))
             .accessibilityLabel(description)
     }

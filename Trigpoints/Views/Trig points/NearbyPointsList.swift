@@ -42,15 +42,36 @@ struct NearbyPointsList: View {
         }
     }
     
+    var categories: [String: [TrigPoint]] {
+        Dictionary(
+            grouping: orderedPoints,
+            by: { $0.wrappedPointType.rawValue }
+        )
+    }
+    
     var body: some View {
         if let location = locationModel.approximateLocation {
-            List(orderedPoints, id: \.self) { point in
-                NavigationLink {
-                    DetailView(currentLocation: location, trigpoint: point)
-                } label: {
-                    PointListItem(point: point, currentLocation: location)
+            List {
+                ForEach(categories.keys.sorted(), id: \.self) { key in
+                    Section(key) {
+                        ForEach(categories[key]!, id: \.self) { point in
+                            NavigationLink {
+                                DetailView(currentLocation: location, trigpoint: point)
+                            } label: {
+                                PointListItem(point: point, currentLocation: location)
+                            }
+                        }
+                    }
                 }
             }
+            
+//            List(orderedPoints, id: \.self) { point in
+//                NavigationLink {
+//                    DetailView(currentLocation: location, trigpoint: point)
+//                } label: {
+//                    PointListItem(point: point, currentLocation: location)
+//                }
+//            }
         } else {
             Text("Acquiring location...")
         }
