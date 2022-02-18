@@ -9,12 +9,28 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
+
 struct DetailView: View {
     var currentLocation: CLLocation?
     var trigpoint: TrigPoint
     
+    @State private var showVisitedSheet = false
+    
+    let kCollectionThreshold = 50.0 * 10000
+    
     let distanceFormatter = MKDistanceFormatter()
     let heightFormatter = NumberFormatter()
+    
+//    @FetchRequest var fetchRequest: FetchedResults<Visit>
+//
+//    init(currentLocation: CLLocation?, trigpoint: TrigPoint) {
+//        self.currentLocation = currentLocation
+//        self.trigpoint = trigpoint
+//    }
+    
+    var visitCount: Int {
+        trigpoint.visits?.count ?? 0
+    }
     
     var body: some View {
         GeometryReader { frame in
@@ -26,8 +42,28 @@ struct DetailView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
                 List {
+                    
                     Section {
-                        
+                        if visitCount > 1 {
+                            Text("You have visited here \(trigpoint.visits?.count ?? 0) times")
+                        } else if visitCount == 1 {
+                            Text("You visited here once!")
+                        } else {
+                            Text("You have not visited here yet!")
+                        }
+                        if let location = currentLocation {
+                            if location.distance(from:trigpoint.location) < kCollectionThreshold {
+                                Button {
+                                    showVisitedSheet = true
+                                } label: {
+                                    Text("Mark as visited")
+                                }.sheet(isPresented: $showVisitedSheet) {
+                                    VisitedSheet(trigpoint: trigpoint)
+                                }
+                            }
+                        }
+                    }
+                    Section {
                         if let location = currentLocation {
                             let prose = distanceFormatter.string(fromDistance: location.distance(from:trigpoint.location))
                             Text("Distance: \(prose)")

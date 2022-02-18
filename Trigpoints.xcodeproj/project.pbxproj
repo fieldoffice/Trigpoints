@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C052ADC27BEB0C7007F7B03 /* VisitedSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C052ADB27BEB0C7007F7B03 /* VisitedSheet.swift */; };
+		4C052ADD27BEB0C7007F7B03 /* VisitedSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C052ADB27BEB0C7007F7B03 /* VisitedSheet.swift */; };
 		4C5D606227B906F2008D3711 /* TrigpointsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606127B906F2008D3711 /* TrigpointsApp.swift */; };
 		4C5D606427B906F2008D3711 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606327B906F2008D3711 /* ContentView.swift */; };
 		4C5D606627B906F3008D3711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D606527B906F3008D3711 /* Assets.xcassets */; };
@@ -75,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C052ADB27BEB0C7007F7B03 /* VisitedSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedSheet.swift; sourceTree = "<group>"; };
 		4C5D605E27B906F2008D3711 /* Trigpoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trigpoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5D606127B906F2008D3711 /* TrigpointsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsApp.swift; sourceTree = "<group>"; };
 		4C5D606327B906F2008D3711 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +133,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C052ADA27BEB0A2007F7B03 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				4C5D60BB27B9206A008D3711 /* LabelledButton.swift */,
+				4C5D60B827B92055008D3711 /* EmbeddedMapView.swift */,
+				4C5D60B527B9203F008D3711 /* DetailView.swift */,
+				4C052ADB27BEB0C7007F7B03 /* VisitedSheet.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		4C5D605527B906F2008D3711 = {
 			isa = PBXGroup;
 			children = (
@@ -248,10 +262,8 @@
 		4C5D60A827B91080008D3711 /* Trig points */ = {
 			isa = PBXGroup;
 			children = (
+				4C052ADA27BEB0A2007F7B03 /* DetailView */,
 				4CAB47F527BE301D0043B797 /* Listing */,
-				4C5D60BB27B9206A008D3711 /* LabelledButton.swift */,
-				4C5D60B827B92055008D3711 /* EmbeddedMapView.swift */,
-				4C5D60B527B9203F008D3711 /* DetailView.swift */,
 			);
 			path = "Trig points";
 			sourceTree = "<group>";
@@ -417,6 +429,7 @@
 				4C5D60B627B9203F008D3711 /* DetailView.swift in Sources */,
 				4C5D606427B906F2008D3711 /* ContentView.swift in Sources */,
 				4C5D606E27B906F3008D3711 /* Trigpoints.xcdatamodeld in Sources */,
+				4C052ADC27BEB0C7007F7B03 /* VisitedSheet.swift in Sources */,
 				4C5D60AA27B910AE008D3711 /* NearbyPoints.swift in Sources */,
 				4C5D60A627B91046008D3711 /* RequestLocationView.swift in Sources */,
 				4C5D60AD27B911A1008D3711 /* PointListItem.swift in Sources */,
@@ -453,6 +466,7 @@
 				4CAB47F227BD74D50043B797 /* Trigpoints.xcdatamodeld in Sources */,
 				4CAB47F327BD74D60043B797 /* TrigJSON.swift in Sources */,
 				4C5D60B427B91AA9008D3711 /* RootView.swift in Sources */,
+				4C052ADD27BEB0C7007F7B03 /* VisitedSheet.swift in Sources */,
 				4CAB47F027BAF2400043B797 /* AngleIndicator.swift in Sources */,
 				4C5D60BA27B92055008D3711 /* EmbeddedMapView.swift in Sources */,
 				4C5D60B727B9203F008D3711 /* DetailView.swift in Sources */,
