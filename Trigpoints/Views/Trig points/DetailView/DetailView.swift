@@ -16,18 +16,11 @@ struct DetailView: View {
     
     @State private var showVisitedSheet = false
     
-    let kCollectionThreshold = 50.0 * 10000
+    let kCollectionThreshold = 50.0
     
     let distanceFormatter = MKDistanceFormatter()
     let heightFormatter = NumberFormatter()
-    
-//    @FetchRequest var fetchRequest: FetchedResults<Visit>
-//
-//    init(currentLocation: CLLocation?, trigpoint: TrigPoint) {
-//        self.currentLocation = currentLocation
-//        self.trigpoint = trigpoint
-//    }
-    
+
     var visitCount: Int {
         trigpoint.visits?.count ?? 0
     }
@@ -44,10 +37,16 @@ struct DetailView: View {
                 List {
                     
                     Section {
-                        if visitCount > 1 {
-                            Text("You have visited here \(trigpoint.visits?.count ?? 0) times")
-                        } else if visitCount == 1 {
-                            Text("You visited here once!")
+                        if visitCount > 0 {
+                            NavigationLink {
+                                VisitsList()
+                            } label: {
+                                if visitCount > 1 {
+                                    Text("You have visited here \(trigpoint.visits?.count ?? 0) times")
+                                } else if visitCount == 1 {
+                                    Text("You visited here once!")
+                                }
+                            }
                         } else {
                             Text("You have not visited here yet!")
                         }

@@ -21,9 +21,16 @@ struct PointListItem: View {
         self.formatter.unitStyle = .abbreviated
     }
     
+    var visitCount: Int {
+        point.visits?.count ?? 0
+    }
+    
     var body: some View {
         HStack {
             Text(point.name ??  "")
+            if visitCount > 0 {
+                Image(systemName: "checkmark")
+            }
             Spacer()
             if let location = currentLocation {
                 let prose = formatter.string(fromDistance: location.distance(from:point.location))
