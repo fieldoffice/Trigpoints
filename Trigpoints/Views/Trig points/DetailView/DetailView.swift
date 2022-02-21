@@ -16,7 +16,7 @@ struct DetailView: View {
     
     @State private var showVisitedSheet = false
     
-    let kCollectionThreshold = 50.0
+    let kCollectionThreshold = 100.0
     
     let distanceFormatter = MKDistanceFormatter()
     let heightFormatter = NumberFormatter()

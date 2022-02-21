@@ -62,5 +62,6 @@ struct NearbyPoints_Previews: PreviewProvider {
         NearbyPoints()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(LocationModel())
+.previewInterfaceOrientation(.landscapeRight)
     }
 }
