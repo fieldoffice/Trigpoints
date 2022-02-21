@@ -14,6 +14,7 @@ struct DetailView: View {
     var currentLocation: CLLocation?
     var trigpoint: TrigPoint
     
+    @AppStorage("useGoogleMaps") private var useGoogleMaps = false
     @State private var showVisitedSheet = false
     
     let kCollectionThreshold = 100.0
@@ -88,11 +89,16 @@ struct DetailView: View {
                     Section("open with") {
                         HStack {
                             Button {
-                                let placemark = MKPlacemark(coordinate: trigpoint.coordinate)
-                                let mapitem = MKMapItem(placemark: placemark)
-                                mapitem.openInMaps(launchOptions: [
-                                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: trigpoint.coordinate)
-                                ])
+                                if !useGoogleMaps {
+                                    let placemark = MKPlacemark(coordinate: trigpoint.coordinate)
+                                    let mapitem = MKMapItem(placemark: placemark)
+                                    mapitem.openInMaps(launchOptions: [
+                                        MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: trigpoint.coordinate)
+                                    ])
+                                } else {
+                                    let url = "https://www.google.com/maps/@\(trigpoint.coordinate.latitude),\(trigpoint.coordinate.longitude),6z"
+                                    UIApplication.shared.open(URL(string:url)!)
+                                }
                             } label: {
                                 LabelledButton(label: "Maps", imageName: "map.fill")
                             }
