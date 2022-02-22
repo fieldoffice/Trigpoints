@@ -96,7 +96,7 @@ struct DetailView: View {
                                         MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: trigpoint.coordinate)
                                     ])
                                 } else {
-                                    let url = "https://www.google.com/maps/@\(trigpoint.coordinate.latitude),\(trigpoint.coordinate.longitude),6z"
+                                    let url = "https://www.google.com/maps/@\(trigpoint.coordinate.latitude),\(trigpoint.coordinate.longitude),16z"
                                     UIApplication.shared.open(URL(string:url)!)
                                 }
                             } label: {
