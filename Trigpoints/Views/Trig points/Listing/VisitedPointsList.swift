@@ -17,26 +17,32 @@ struct VisitedPointsList: View {
     private var visits: FetchedResults<Visit>
     
     var body: some View {
-        List {
-            ForEach(visits) { visit in
-                if let point = visit.point {
-                    NavigationLink {
-                        DetailView(currentLocation: locationModel.approximateLocation, trigpoint: point)
-                    } label: {
-                        PointListItem(point: point, currentLocation: locationModel.approximateLocation)
+        if visits.count > 0 {
+            List {
+                ForEach(visits) { visit in
+                    if let point = visit.point {
+                        NavigationLink {
+                            DetailView(currentLocation: locationModel.approximateLocation, trigpoint: point)
+                        } label: {
+                            PointListItem(point: point, currentLocation: locationModel.approximateLocation)
+                        }
+                    } else {
+                        Text("Bad visit data!")
                     }
-                } else {
-                    Text("Bad visit data!")
+                }
+                .onDelete(perform: deleteItems)
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    EditButton()
                 }
             }
-            .onDelete(perform: deleteItems)
+            .navigationTitle("Visited")
+        } else {
+            Spacer()
+            Text("You've not visited any points yet!")
+            Spacer()
         }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                EditButton()
-            }
-        }
-        .navigationTitle("Visited")
     }
     
     private func deleteItems(offsets: IndexSet) {
