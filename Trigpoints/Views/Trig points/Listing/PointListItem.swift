@@ -30,6 +30,7 @@ struct PointListItem: View {
             Text(point.name ??  "")
             if visitCount > 0 {
                 Image(systemName: "checkmark")
+                    .tag("checkmark")
             }
             Spacer()
             if let location = currentLocation {

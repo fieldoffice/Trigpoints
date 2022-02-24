@@ -15,7 +15,7 @@
 		4C5D606927B906F3008D3711 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D606827B906F3008D3711 /* Preview Assets.xcassets */; };
 		4C5D606B27B906F3008D3711 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606A27B906F3008D3711 /* Persistence.swift */; };
 		4C5D606E27B906F3008D3711 /* Trigpoints.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606C27B906F3008D3711 /* Trigpoints.xcdatamodeld */; };
-		4C5D607827B906F4008D3711 /* TrigpointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D607727B906F4008D3711 /* TrigpointsTests.swift */; };
+		4C5D607827B906F4008D3711 /* PointListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D607727B906F4008D3711 /* PointListItemTests.swift */; };
 		4C5D608227B906F4008D3711 /* TrigpointsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */; };
 		4C5D608427B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */; };
 		4C5D609327B90900008D3711 /* smalltrig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609127B90900008D3711 /* smalltrig.json */; };
@@ -48,6 +48,12 @@
 		4C8E1BDE27C41A8E00080564 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C8E1BDD27C41A8E00080564 /* Settings.bundle */; };
 		4C8E1BE027C6932300080564 /* VisitedPointsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E1BDF27C6932300080564 /* VisitedPointsList.swift */; };
 		4C8E1BE127C6932300080564 /* VisitedPointsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E1BDF27C6932300080564 /* VisitedPointsList.swift */; };
+		4C9E2E9D27C7C6F500E54990 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9E2E9C27C7C6F500E54990 /* ViewInspector */; };
+		4C9E2E9E27C7C71300E54990 /* PointListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D60AC27B911A1008D3711 /* PointListItem.swift */; };
+		4C9E2E9F27C7C71300E54990 /* AngleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */; };
+		4C9E2EA027C7C71900E54990 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606A27B906F3008D3711 /* Persistence.swift */; };
+		4C9E2EA127C7C71900E54990 /* Trigpoints.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606C27B906F3008D3711 /* Trigpoints.xcdatamodeld */; };
+		4C9E2EA227C7C71E00E54990 /* VisitsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606327B906F2008D3711 /* VisitsList.swift */; };
 		4CAB47E827BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */; };
 		4CAB47E927BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */; };
 		4CAB47EF27BAF2400043B797 /* AngleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */; };
@@ -89,7 +95,7 @@
 		4C5D606A27B906F3008D3711 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4C5D606D27B906F3008D3711 /* Trigpoints.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trigpoints.xcdatamodel; sourceTree = "<group>"; };
 		4C5D607327B906F4008D3711 /* TrigpointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrigpointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C5D607727B906F4008D3711 /* TrigpointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsTests.swift; sourceTree = "<group>"; };
+		4C5D607727B906F4008D3711 /* PointListItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointListItemTests.swift; sourceTree = "<group>"; };
 		4C5D607D27B906F4008D3711 /* TrigpointsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrigpointsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsUITests.swift; sourceTree = "<group>"; };
 		4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9E2E9D27C7C6F500E54990 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +202,7 @@
 		4C5D607627B906F4008D3711 /* TrigpointsTests */ = {
 			isa = PBXGroup;
 			children = (
-				4C5D607727B906F4008D3711 /* TrigpointsTests.swift */,
+				4C5D607727B906F4008D3711 /* PointListItemTests.swift */,
 			);
 			path = TrigpointsTests;
 			sourceTree = "<group>";
@@ -329,6 +336,9 @@
 				4C5D607527B906F4008D3711 /* PBXTargetDependency */,
 			);
 			name = TrigpointsTests;
+			packageProductDependencies = (
+				4C9E2E9C27C7C6F500E54990 /* ViewInspector */,
+			);
 			productName = TrigpointsTests;
 			productReference = 4C5D607327B906F4008D3711 /* TrigpointsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -383,6 +393,9 @@
 				Base,
 			);
 			mainGroup = 4C5D605527B906F2008D3711;
+			packageReferences = (
+				4C9E2E9B27C7C6F500E54990 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			productRefGroup = 4C5D605F27B906F2008D3711 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -459,10 +472,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9E2EA027C7C71900E54990 /* Persistence.swift in Sources */,
+				4C9E2EA127C7C71900E54990 /* Trigpoints.xcdatamodeld in Sources */,
+				4C9E2E9E27C7C71300E54990 /* PointListItem.swift in Sources */,
+				4C9E2E9F27C7C71300E54990 /* AngleIndicator.swift in Sources */,
 				4C5D60B127B9153D008D3711 /* TrigJSON.swift in Sources */,
 				4CAB47E927BAF0CC0043B797 /* CoreLocationExtensions.swift in Sources */,
 				4C5D609F27B90FD5008D3711 /* LocationModel.swift in Sources */,
-				4C5D607827B906F4008D3711 /* TrigpointsTests.swift in Sources */,
+				4C5D607827B906F4008D3711 /* PointListItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9E2EA227C7C71E00E54990 /* VisitsList.swift in Sources */,
 				4CAB47F427BD752A0043B797 /* CoreLocationExtensions.swift in Sources */,
 				4CAB47F127BD74D50043B797 /* Persistence.swift in Sources */,
 				4CAB47F227BD74D50043B797 /* Trigpoints.xcdatamodeld in Sources */,
@@ -801,6 +819,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C9E2E9B27C7C6F500E54990 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C9E2E9C27C7C6F500E54990 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C9E2E9B27C7C6F500E54990 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4C5D606C27B906F3008D3711 /* Trigpoints.xcdatamodeld */ = {
