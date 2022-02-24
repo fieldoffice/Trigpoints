@@ -1,35 +1,33 @@
 //
-//  ContentView.swift
+//  VisitedPointsList.swift
 //  Trigpoints
 //
-//  Created by Michael Dales on 13/02/2022.
+//  Created by Michael Dales on 23/02/2022.
 //
 
 import SwiftUI
-import CoreData
 
-struct VisitsList: View {
+struct VisitedPointsList: View {
     @Environment(\.managedObjectContext) private var viewContext
-    var trigpoint: TrigPoint
+    @EnvironmentObject private var locationModel: LocationModel
 
-    @FetchRequest private var visits: FetchedResults<Visit>
-
-    init(trigpoint: TrigPoint) {
-        self.trigpoint = trigpoint
-        
-        _visits = FetchRequest<Visit>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Visit.timestamp, ascending: false)],
-            predicate: NSPredicate(
-                format: "point == %@", trigpoint
-            ),
-            animation: .default
-        )
-    }
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Visit.timestamp, ascending: false)],
+        animation: .default)
+    private var visits: FetchedResults<Visit>
     
     var body: some View {
         List {
             ForEach(visits) { visit in
-                Text("Visited \(visit.point?.name ?? "") at \(visit.timestamp!, formatter: itemFormatter)")
+                if let point = visit.point {
+                    NavigationLink {
+                        DetailView(currentLocation: locationModel.approximateLocation, trigpoint: point)
+                    } label: {
+                        PointListItem(point: point, currentLocation: locationModel.approximateLocation)
+                    }
+                } else {
+                    Text("Bad visit data!")
+                }
             }
             .onDelete(perform: deleteItems)
         }
@@ -38,12 +36,12 @@ struct VisitsList: View {
                 EditButton()
             }
         }
+        .navigationTitle("Visited")
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { visits[$0] }.forEach(viewContext.delete)
-
             do {
                 try viewContext.save()
             } catch {
@@ -56,6 +54,7 @@ struct VisitsList: View {
     }
 }
 
+
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
@@ -63,10 +62,9 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct VisitsList_Previews: PreviewProvider {
+
+struct VisitedPointsList_Previews: PreviewProvider {
     static var previews: some View {
-        VisitsList(
-            trigpoint: .preview
-        ).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        VisitedPointsList().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

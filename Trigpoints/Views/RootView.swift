@@ -20,7 +20,7 @@ struct RootView: View {
         case .denied:
             RequestErrorView(errorText: "The app does not have location permissions. Please enable them in settings.")
         case .authorizedAlways, .authorizedWhenInUse:
-            NearbyPoints()
+            TopLevel()
                 .environmentObject(locationModel)
         default:
             Text("Unexpected status")

@@ -11,6 +11,7 @@ import CoreLocation
 struct NearbyPointsList: View {
     @EnvironmentObject private var locationModel: LocationModel
     @AppStorage("showGoodOnly") var showGoodOnly: Bool = false
+    @State private var showSheet = false
     
     @FetchRequest var fetchRequest: FetchedResults<TrigPoint>
     
@@ -66,9 +67,23 @@ struct NearbyPointsList: View {
                         }
                     }
                 }
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            showSheet = true
+                        } label: {
+                            Image(systemName: "eye")
+                        }
+                    }
+                }
+            }.sheet(isPresented: $showSheet) {
+                ListFilters()
             }
+            .navigationTitle("Nearby")
         } else {
+            Spacer()
             Text("Acquiring location...")
+            Spacer()
         }
     }
 }

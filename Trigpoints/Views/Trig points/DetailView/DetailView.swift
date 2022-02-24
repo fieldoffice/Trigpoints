@@ -40,7 +40,7 @@ struct DetailView: View {
                     Section {
                         if visitCount > 0 {
                             NavigationLink {
-                                VisitsList()
+                                VisitsList(trigpoint: trigpoint)
                             } label: {
                                 if visitCount > 1 {
                                     Text("You have visited here \(trigpoint.visits?.count ?? 0) times")
