@@ -1,26 +1,27 @@
 //
-//  RootView.swift
+//  LocationRequiredWrapper.swift
 //  Trigpoints
 //
-//  Created by Michael Dales on 13/02/2022.
+//  Created by Michael Dales on 26/02/2022.
 //
 
 import SwiftUI
-import CoreData
 
-struct RootView: View {
-    @StateObject var locationModel = LocationModel()
+struct LocationRequiredWrapper: View {
+    @EnvironmentObject private var locationModel: LocationModel
     
     var body: some View {
         switch locationModel.authorizationStatus {
         case .notDetermined:
+            Spacer()
             AnyView(RequestLocationView()).environmentObject(locationModel)
+            Spacer()
         case .restricted:
             RequestErrorView(errorText: "Location use is restricted.")
         case .denied:
-            RequestErrorView(errorText: "The app does not have location permissions. Please enable them in settings.")
+            RequestErrorView(errorText: "The app does not have location permissions, so can't show nearby trig points. Please enable them in settings.")
         case .authorizedAlways, .authorizedWhenInUse:
-            TopLevel()
+            NearbyPointsList(filter: locationModel.approximateLocation)
                 .environmentObject(locationModel)
         default:
             Text("Unexpected status")
@@ -28,8 +29,8 @@ struct RootView: View {
     }
 }
 
-struct RootView_Previews: PreviewProvider {
+struct LocationRequiredWrapper_Previews: PreviewProvider {
     static var previews: some View {
-        RootView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        LocationRequiredWrapper()
     }
 }

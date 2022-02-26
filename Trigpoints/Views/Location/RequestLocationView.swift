@@ -15,19 +15,22 @@ struct RequestLocationView: View {
             Image(systemName: "location.circle")
                 .resizable()
                 .frame(width: 100, height: 100, alignment: .center)
-                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            
+            Text("We need your permission to see where you are in order to find nearby trig points.")
+                .foregroundColor(.gray)
+                .font(.caption)
+                .padding()
+                .frame(alignment: .leading)
+            
             Button(action: {
                 locationModel.requestPermission()
             }, label: {
-                Label("Allow tracking", systemImage: "location")
+                Text("Allow location access")
             })
             .padding(10)
             .foregroundColor(.white)
-            .background(Color.blue)
+            .background(Color.accentColor)
             .clipShape(RoundedRectangle(cornerRadius: 8))
-            Text("We need your permission to track you.")
-                .foregroundColor(.gray)
-                .font(.caption)
         }
     }
 }

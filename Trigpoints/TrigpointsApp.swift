@@ -13,7 +13,7 @@ struct TrigpointsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            TopLevel()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

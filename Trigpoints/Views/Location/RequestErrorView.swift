@@ -12,14 +12,18 @@ struct RequestErrorView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             Image(systemName: "xmark.octagon")
                     .resizable()
                 .frame(width: 100, height: 100, alignment: .center)
+                .padding()
+                .foregroundColor(.red)
             Text(errorText)
+                .font(.caption)
+                .padding()
+                .frame(alignment: .leading)
+            Spacer()
         }
-        .padding()
-        .foregroundColor(.white)
-        .background(Color.red)
     }
 }
 

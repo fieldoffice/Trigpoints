@@ -22,21 +22,58 @@ class TrigpointsUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testClearAppStart() throws {
         let app = XCUIApplication()
+        app.resetAuthorizationStatus(for: .location)
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        // On launch we should have no permissions, so we should see the button
+        // requesting them.
+        XCTAssertTrue(app.buttons["Allow location access"].exists)
+        XCTAssertFalse(app.staticTexts["You've not visited any points yet!"].exists)
+        
+        // But the tab bar should still work, just we have no state
+        app.staticTexts["Visited"].tap()
+        XCTAssertFalse(app.buttons["Allow location access"].exists)
+        XCTAssertTrue(app.staticTexts["You've not visited any points yet!"].exists)
+        
+        // and back again...
+        app.staticTexts["Nearby"].tap()
+        XCTAssertTrue(app.buttons["Allow location access"].exists)
+        XCTAssertFalse(app.staticTexts["You've not visited any points yet!"].exists)
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+    
+    func testRejectLocationRequest() throws {
+        let app = XCUIApplication()
+        app.resetAuthorizationStatus(for: .location)
+        app.launch()
+        
+        app.buttons["Allow location access"].tap()
+        
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let button = springboard.alerts.firstMatch.buttons["Don’t Allow"]
+        if button.waitForExistence(timeout: 10) {
+            button.tap()
         }
+
+        XCTAssertFalse(app.buttons["Allow location access"].exists)
+        XCTAssertTrue(app.staticTexts["The app does not have location permissions, so can't show nearby trig points. Please enable them in settings."].exists)
+    }
+    
+    func testAcceptLocationRequest() throws {
+        let app = XCUIApplication()
+        app.resetAuthorizationStatus(for: .location)
+        app.launch()
+        
+        app.buttons["Allow location access"].tap()
+        
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let button = springboard.alerts.firstMatch.buttons["Allow Once"]
+        if button.waitForExistence(timeout: 10) {
+            button.tap()
+        }
+
+        XCTAssertFalse(app.buttons["Allow location access"].exists)
+        XCTAssertFalse(app.staticTexts["The app does not have location permissions, so can't show nearby trig points. Please enable them in settings."].exists)
     }
 }

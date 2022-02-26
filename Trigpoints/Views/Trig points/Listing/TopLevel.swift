@@ -10,9 +10,9 @@ import CoreData
 
 struct TopLevel: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject private var locationModel: LocationModel
     @State private var loaded: Bool = false
     @State private var selectedTab: Tab = .nearby
+    @StateObject var locationModel = LocationModel()
     
     @FetchRequest(
         sortDescriptors: [],
@@ -31,7 +31,8 @@ struct TopLevel: View {
                     if selectedTab == .nearby {
                         NavigationView {
                             VStack(spacing:0) {
-                                NearbyPointsList(filter: locationModel.approximateLocation)
+//                                NearbyPointsList(filter: locationModel.approximateLocation)
+                                LocationRequiredWrapper().environmentObject(locationModel)
                                 tabBarView
                             }
                         }
@@ -39,7 +40,7 @@ struct TopLevel: View {
                     } else if selectedTab == .visited {
                         NavigationView {
                             VStack(spacing:0) {
-                                VisitedPointsList()
+                                VisitedPointsList().environmentObject(locationModel)
                                 tabBarView
                             }
                         }
