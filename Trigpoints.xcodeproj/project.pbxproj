@@ -16,7 +16,7 @@
 		4C5D606B27B906F3008D3711 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606A27B906F3008D3711 /* Persistence.swift */; };
 		4C5D606E27B906F3008D3711 /* Trigpoints.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D606C27B906F3008D3711 /* Trigpoints.xcdatamodeld */; };
 		4C5D607827B906F4008D3711 /* PointListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D607727B906F4008D3711 /* PointListItemTests.swift */; };
-		4C5D608227B906F4008D3711 /* TrigpointsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */; };
+		4C5D608227B906F4008D3711 /* LocationAuthorizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608127B906F4008D3711 /* LocationAuthorizationUITests.swift */; };
 		4C5D608427B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */; };
 		4C5D609327B90900008D3711 /* smalltrig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609127B90900008D3711 /* smalltrig.json */; };
 		4C5D609427B90900008D3711 /* smalltrig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D609127B90900008D3711 /* smalltrig.json */; };
@@ -62,6 +62,7 @@
 		4CAB47F427BD752A0043B797 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */; };
 		4CAB47F727BE30500043B797 /* ListFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47F627BE30500043B797 /* ListFilters.swift */; };
 		4CAB47F827BE30500043B797 /* ListFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB47F627BE30500043B797 /* ListFilters.swift */; };
+		4CC6519127CE233B00EF6BBE /* NearbyPointsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6519027CE233B00EF6BBE /* NearbyPointsUITests.swift */; };
 		4CCFD83B27B9546700A99A78 /* NearbyPointsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */; };
 		4CCFD83C27B9546700A99A78 /* NearbyPointsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */; };
 		4CF5A53B27CA77A800F7483C /* LocationRequiredWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5A53A27CA77A800F7483C /* LocationRequiredWrapper.swift */; };
@@ -97,7 +98,7 @@
 		4C5D607327B906F4008D3711 /* TrigpointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrigpointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5D607727B906F4008D3711 /* PointListItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointListItemTests.swift; sourceTree = "<group>"; };
 		4C5D607D27B906F4008D3711 /* TrigpointsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrigpointsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsUITests.swift; sourceTree = "<group>"; };
+		4C5D608127B906F4008D3711 /* LocationAuthorizationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationUITests.swift; sourceTree = "<group>"; };
 		4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigpointsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4C5D609127B90900008D3711 /* smalltrig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smalltrig.json; sourceTree = "<group>"; };
 		4C5D609227B90900008D3711 /* trig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trig.json; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		4CAB47E727BAF0CC0043B797 /* CoreLocationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationExtensions.swift; sourceTree = "<group>"; };
 		4CAB47EE27BAF2400043B797 /* AngleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleIndicator.swift; sourceTree = "<group>"; };
 		4CAB47F627BE30500043B797 /* ListFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilters.swift; sourceTree = "<group>"; };
+		4CC6519027CE233B00EF6BBE /* NearbyPointsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPointsUITests.swift; sourceTree = "<group>"; };
 		4CCFD83A27B9546700A99A78 /* NearbyPointsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPointsList.swift; sourceTree = "<group>"; };
 		4CF5A53A27CA77A800F7483C /* LocationRequiredWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequiredWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,8 +212,9 @@
 		4C5D608027B906F4008D3711 /* TrigpointsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4C5D608127B906F4008D3711 /* TrigpointsUITests.swift */,
+				4C5D608127B906F4008D3711 /* LocationAuthorizationUITests.swift */,
 				4C5D608327B906F4008D3711 /* TrigpointsUITestsLaunchTests.swift */,
+				4CC6519027CE233B00EF6BBE /* NearbyPointsUITests.swift */,
 			);
 			path = TrigpointsUITests;
 			sourceTree = "<group>";
@@ -497,7 +500,8 @@
 				4CAB47F027BAF2400043B797 /* AngleIndicator.swift in Sources */,
 				4C5D60BA27B92055008D3711 /* EmbeddedMapView.swift in Sources */,
 				4C5D60B727B9203F008D3711 /* DetailView.swift in Sources */,
-				4C5D608227B906F4008D3711 /* TrigpointsUITests.swift in Sources */,
+				4C5D608227B906F4008D3711 /* LocationAuthorizationUITests.swift in Sources */,
+				4CC6519127CE233B00EF6BBE /* NearbyPointsUITests.swift in Sources */,
 				4C5D60A727B91046008D3711 /* RequestLocationView.swift in Sources */,
 				4C8E1BE127C6932300080564 /* VisitedPointsList.swift in Sources */,
 				4C5D60A027B90FD5008D3711 /* LocationModel.swift in Sources */,
