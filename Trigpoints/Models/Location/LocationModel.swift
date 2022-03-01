@@ -7,16 +7,33 @@
 
 import Foundation
 import CoreLocation
+import Combine
+
+class AnyLocationModel: ObservableObject {
+    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    @Published var approximateLocation: CLLocation?
+    
+    private let locationModel: LocationModel
+    var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        locationModel = LocationModel()
+        locationModel.$approximateLocation.sink(receiveValue: {self.approximateLocation = $0}).store(in: &cancellables)
+        locationModel.$authorizationStatus.sink(receiveValue: {self.authorizationStatus = $0}).store(in: &cancellables)
+    }
+    
+    func requestPermission() {
+        locationModel.requestPermission()
+    }
+}
 
 class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
-    @Published var lastSeenLocation: CLLocation?
-    
-    let MovementThreshold = 30.0
-    
     // This only updates if we've moved a reasonable distance, to try
     // reduce UI updates as the GPS bounces
     @Published var approximateLocation: CLLocation?
+    
+    let kMovementThreshold = 30.0
     
     private let locationManager: CLLocationManager
     
@@ -43,7 +60,7 @@ class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         // and only observce lastSeenLocation for things that really need detailed updates
         if let location = locations.first {
             if let last = approximateLocation {
-                if location.distance(from: last) > MovementThreshold {
+                if location.distance(from: last) > kMovementThreshold {
                     approximateLocation = location
                 }
             } else {
@@ -51,6 +68,5 @@ class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 approximateLocation = location
             }
         }
-        lastSeenLocation = locations.first
     }
 }

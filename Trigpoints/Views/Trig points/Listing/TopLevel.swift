@@ -12,7 +12,7 @@ struct TopLevel: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var loaded: Bool = false
     @State private var selectedTab: Tab = .nearby
-    @StateObject var locationModel = LocationModel()
+    @StateObject var locationModel = AnyLocationModel()
     
     @FetchRequest(
         sortDescriptors: [],

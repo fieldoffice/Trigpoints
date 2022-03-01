@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 struct NearbyPointsList: View {
-    @EnvironmentObject private var locationModel: LocationModel
+    @EnvironmentObject private var locationModel: AnyLocationModel
     @AppStorage("showGoodOnly") var showGoodOnly: Bool = false
     @State private var showSheet = false
     

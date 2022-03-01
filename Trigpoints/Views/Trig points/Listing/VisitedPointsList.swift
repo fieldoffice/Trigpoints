@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VisitedPointsList: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject private var locationModel: LocationModel
+    @EnvironmentObject private var locationModel: AnyLocationModel
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Visit.timestamp, ascending: false)],

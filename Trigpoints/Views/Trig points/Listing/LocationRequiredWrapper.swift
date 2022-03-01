@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LocationRequiredWrapper: View {
-    @EnvironmentObject private var locationModel: LocationModel
+    @EnvironmentObject private var locationModel: AnyLocationModel
     
     var body: some View {
         switch locationModel.authorizationStatus {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RequestLocationView: View {
-    @EnvironmentObject var locationModel: LocationModel
+    @EnvironmentObject var locationModel: AnyLocationModel
     
     var body: some View {
         VStack {
@@ -38,6 +38,6 @@ struct RequestLocationView: View {
 struct RequestLocationView_Previews: PreviewProvider {
     static var previews: some View {
         RequestLocationView()
-            .environmentObject(LocationModel())
+            .environmentObject(AnyLocationModel())
     }
 }
