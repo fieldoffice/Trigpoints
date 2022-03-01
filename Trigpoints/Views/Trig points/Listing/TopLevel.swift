@@ -31,7 +31,6 @@ struct TopLevel: View {
                     if selectedTab == .nearby {
                         NavigationView {
                             VStack(spacing:0) {
-//                                NearbyPointsList(filter: locationModel.approximateLocation)
                                 LocationRequiredWrapper().environmentObject(locationModel)
                                 tabBarView
                             }
