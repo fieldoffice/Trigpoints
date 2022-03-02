@@ -28,6 +28,8 @@ protocol AbstractLocationModel {
 // testing when I have location dependancies for my data.
 
 let kUITestingFlag = "-isUItesting"
+let kUITestingLatitude = "-testLatitude"
+let kUITestingLongitude = "-testLongitude"
 
 class AnyLocationModel: ObservableObject {
     @Published private(set) var authorizationStatus: CLAuthorizationStatus = .notDetermined
@@ -62,7 +64,10 @@ class MockLocationModel: ObservableObject, AbstractLocationModel {
     
     init() {
         authorizationStatus = .authorizedWhenInUse
-        approximateLocation = CLLocation(latitude: 55.8, longitude: -4.2)
+        let userDefaults = UserDefaults.standard
+        let latitude = userDefaults.double(forKey: String(kUITestingLatitude.suffix(kUITestingLatitude.count - 1)))
+        let longitude = userDefaults.double(forKey: String(kUITestingLongitude.suffix(kUITestingLongitude.count - 1)))
+        approximateLocation = CLLocation(latitude: latitude, longitude: longitude)
     }
     
     func requestPermission() {

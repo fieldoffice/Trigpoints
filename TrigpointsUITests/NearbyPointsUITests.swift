@@ -22,7 +22,7 @@ class NearbyPointsUITests: XCTestCase {
 
     func testBasicView() throws {
         let app = XCUIApplication()
-        app.launchArguments = [kUITestingFlag]
+        app.launchArguments = [kUITestingFlag, kUITestingLatitude, "55.8", kUITestingLongitude, "\"-4.2\""]
         app.launch()
         
         XCTAssertTrue(app.staticTexts["Active station"].exists)
@@ -32,6 +32,21 @@ class NearbyPointsUITests: XCTestCase {
         
         XCTAssertTrue(app.staticTexts["Glasgow"].exists)
         XCTAssertTrue(app.staticTexts["You have not visited here yet!"].exists)
+        XCTAssertFalse(app.buttons["Mark as visited"].exists)
     }
-
+    
+    func testBasicViewVisitable() throws {
+        let app = XCUIApplication()
+        app.launchArguments = [kUITestingFlag, kUITestingLatitude, "55.85400182", kUITestingLongitude, "\"-4.29651932\""]
+        app.launch()
+        
+        XCTAssertTrue(app.staticTexts["Active station"].exists)
+        XCTAssertTrue(app.staticTexts["Glasgow"].exists)
+        
+        app.staticTexts["Glasgow"].tap()
+        
+        XCTAssertTrue(app.staticTexts["Glasgow"].exists)
+        XCTAssertTrue(app.staticTexts["You have not visited here yet!"].exists)
+        XCTAssertTrue(app.buttons["Mark as visited"].exists)
+    }
 }
