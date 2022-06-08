@@ -75,7 +75,6 @@ struct TopLevel: View {
                 .padding(.top, 8)
             }
             .frame(height: 50)
-            .background(Color.white.edgesIgnoringSafeArea(.all))
         }
         
         func tabBarItem(_ tab: Tab, title: String, icon: String, selectedIcon: String) -> some View {
@@ -84,13 +83,13 @@ struct TopLevel: View {
                     VStack {
                         Image(systemName: (selectedTab == tab ? selectedIcon : icon))
                             .font(.system(size: 24))
-                            .foregroundColor(selectedTab == tab ? .primary : .black)
+                            .foregroundColor(selectedTab == tab ? .primary : .primary)
                     }
                     .frame(width: 55, height: 28)
                     
                     Text(title)
                         .font(.system(size: 11))
-                        .foregroundColor(selectedTab == tab ? .primary : .black)
+                        .foregroundColor(selectedTab == tab ? .primary : .primary)
                 }
             }
             .frame(width: 65, height: 42)
