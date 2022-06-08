@@ -34,9 +34,12 @@ let kUITestingLongitude = "-testLongitude"
 class AnyLocationModel: ObservableObject {
     @Published private(set) var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published private(set) var approximateLocation: CLLocation?
+    var approximateLocationPublisher: Published<CLLocation?>.Publisher {
+        return $approximateLocation
+    }
     
     private let locationModel: AbstractLocationModel
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         locationModel = ProcessInfo.processInfo.arguments.contains(kUITestingFlag) ? MockLocationModel() : LocationModel()

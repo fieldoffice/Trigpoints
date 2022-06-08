@@ -14,15 +14,14 @@ struct LocationRequiredWrapper: View {
         switch locationModel.authorizationStatus {
         case .notDetermined:
             Spacer()
-            AnyView(RequestLocationView()).environmentObject(locationModel)
+            AnyView(RequestLocationView())
             Spacer()
         case .restricted:
             RequestErrorView(errorText: "Location use is restricted.")
         case .denied:
             RequestErrorView(errorText: "The app does not have location permissions, so can't show nearby trig points. Please enable them in settings.")
         case .authorizedAlways, .authorizedWhenInUse:
-            NearbyPointsList(filter: locationModel.approximateLocation)
-                .environmentObject(locationModel)
+            NearbyPointsList()
         default:
             Text("Unexpected status")
         }

@@ -10,45 +10,14 @@ import CoreLocation
 
 struct NearbyPointsList: View {
     @EnvironmentObject private var locationModel: AnyLocationModel
+    @EnvironmentObject private var nearbyPointsModel: NearbyPointsModel
+
     @AppStorage("showGoodOnly") var showGoodOnly: Bool = false
     @State private var showSheet = false
-    
-    @FetchRequest var fetchRequest: FetchedResults<TrigPoint>
-    
-    init(filter: CLLocation?) {
-        var predicate: NSPredicate? = nil
-        if let location = filter {
-            predicate = NSPredicate(
-                format: "latitude > %f AND latitude < %f AND longitude > %f AND longitude < %f",
-                location.coordinate.latitude - 0.1,
-                location.coordinate.latitude + 0.1,
-                location.coordinate.longitude - 0.1,
-                location.coordinate.longitude + 0.1
-            )
-        }
-        _fetchRequest = FetchRequest<TrigPoint>(
-            sortDescriptors: [],
-            predicate: predicate
-        )
-    }
-    
-    var orderedPoints: [TrigPoint] {
-        if let location = locationModel.approximateLocation {
-            return fetchRequest.filter {
-                !showGoodOnly || $0.cond == .good
-            }.sorted {
-                $0.location.distance(from: location) < $1.location.distance(from: location)
-            }
-        } else {
-            return fetchRequest.filter {
-                !showGoodOnly || $0.cond == .good
-            }
-        }
-    }
-    
+
     var categories: [String: [TrigPoint]] {
         Dictionary(
-            grouping: orderedPoints,
+            grouping: nearbyPointsModel.nearbyPoints,
             by: { $0.wrappedPointType.rawValue }
         )
     }
@@ -90,7 +59,7 @@ struct NearbyPointsList: View {
 
 struct NearbyPointsList_Previews: PreviewProvider {
     static var previews: some View {
-        NearbyPointsList(filter: CLLocation(latitude: 60.0, longitude: 0.1))
+        NearbyPointsList()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(LocationModel())
     }

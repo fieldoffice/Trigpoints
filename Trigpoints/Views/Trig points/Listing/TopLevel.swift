@@ -12,7 +12,6 @@ struct TopLevel: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var loaded: Bool = false
     @State private var selectedTab: Tab = .nearby
-    @StateObject var locationModel = AnyLocationModel()
     
     @FetchRequest(
         sortDescriptors: [],
@@ -31,7 +30,7 @@ struct TopLevel: View {
                     if selectedTab == .nearby {
                         NavigationView {
                             VStack(spacing:0) {
-                                LocationRequiredWrapper().environmentObject(locationModel)
+                                LocationRequiredWrapper()
                                 tabBarView
                             }
                         }
@@ -39,7 +38,7 @@ struct TopLevel: View {
                     } else if selectedTab == .visited {
                         NavigationView {
                             VStack(spacing:0) {
-                                VisitedPointsList().environmentObject(locationModel)
+                                VisitedPointsList()
                                 tabBarView
                             }
                         }
