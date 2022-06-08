@@ -50,8 +50,7 @@ class NearbyPointsUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Mark as visited"].exists)
         
         app.buttons["Mark as visited"].tap()
-        
-        
-        XCTAssertTrue(app.sheets["You visisted Glasgow"].exists)
+
+        XCTAssertTrue(app.staticTexts["You visited Glasgow!"].waitForExistence(timeout: 5))
     }
 }
